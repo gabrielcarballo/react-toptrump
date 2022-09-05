@@ -114,9 +114,9 @@ class Form extends Component {
 Form.propTypes = {
   cardName: propTypes.string.isRequired,
   cardDescription: propTypes.string.isRequired,
-  cardAttr1: propTypes.string.isRequired,
-  cardAttr2: propTypes.string.isRequired,
-  cardAttr3: propTypes.string.isRequired,
+  cardAttr1: propTypes.number.isRequired,
+  cardAttr2: propTypes.number.isRequired,
+  cardAttr3: propTypes.number.isRequired,
   cardImage: propTypes.string.isRequired,
   cardRare: propTypes.string.isRequired,
   cardTrunfo: propTypes.bool.isRequired,
