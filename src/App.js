@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Deck from './components/Deck';
 
 class App extends React.Component {
   constructor() {
@@ -51,17 +52,18 @@ class App extends React.Component {
     });
   }
 
-  onSaveButtonClick = (p) => {
-    const { cardTrunfo } = this.state;
+  onSaveButtonClick = () => {
+    const { cardTrunfo, deck } = this.state;
     console.log(cardTrunfo);
     this.setState({
       hasTrunfo: cardTrunfo,
     });
 
-    console.log(this.deck);
-    console.log(p);
-    this.setState((e) => ({
-      deck: [...e.deck, p],
+    let deckInstance = deck;
+    console.log(deckInstance);
+    deckInstance = [...deckInstance, this.state];
+    this.setState({ deck: deckInstance });
+    this.setState({
       cardName: '',
       cardDescription: '',
       cardImage: '',
@@ -70,7 +72,8 @@ class App extends React.Component {
       cardAttr3: '0',
       cardRare: 'normal',
       cardTrunfo: false,
-    }));
+    });
+    console.log(deckInstance);
   };
 
   render() {
@@ -83,6 +86,7 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
         />
         <Card { ...this.state } />
+        <Deck deck={ this.state.deck }/>
       </div>
     );
   }
