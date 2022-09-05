@@ -2,10 +2,6 @@ import { Component } from 'react';
 import propTypes from 'prop-types';
 
 class Form extends Component {
-/*   constructor() {
-    super()
-  }
- */
   render() {
     const { cardName, cardDescription, cardAttr1,
       cardAttr2, cardAttr3, cardImage,
@@ -43,7 +39,7 @@ class Form extends Component {
           <input
             type="number"
             data-testid="attr1-input"
-            name="firstAtt"
+            name="cardAttr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
           />
@@ -53,7 +49,7 @@ class Form extends Component {
           <input
             type="number"
             data-testid="attr2-input"
-            name="secondAtt"
+            name="cardAttr2"
             value={ cardAttr2 }
             onChange={ onInputChange }
           />
@@ -63,7 +59,7 @@ class Form extends Component {
           <input
             type="number"
             data-testid="attr3-input"
-            name="thirdAtt"
+            name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
           />
@@ -96,7 +92,6 @@ class Form extends Component {
           <input
             type="checkbox"
             data-testid="trunfo-input"
-            name="isCardTopTrump"
             checked={ cardTrunfo }
             onChange={ onInputChange }
           />
@@ -109,7 +104,6 @@ class Form extends Component {
           onClick={ onSaveButtonClick }
         >
           Salvar
-
         </button>
       </form>
     );
@@ -119,9 +113,9 @@ class Form extends Component {
 Form.propTypes = {
   cardName: propTypes.string.isRequired,
   cardDescription: propTypes.string.isRequired,
-  cardAttr1: propTypes.number.isRequired,
-  cardAttr2: propTypes.number.isRequired,
-  cardAttr3: propTypes.number.isRequired,
+  cardAttr1: propTypes.string.isRequired,
+  cardAttr2: propTypes.string.isRequired,
+  cardAttr3: propTypes.string.isRequired,
   cardImage: propTypes.string.isRequired,
   cardRare: propTypes.string.isRequired,
   cardTrunfo: propTypes.bool.isRequired,

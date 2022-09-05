@@ -6,7 +6,11 @@ class Card extends React.Component {
     const { cardName, cardDescription, cardAttr1,
       cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo } = this.props;
-    const trunfo = <span data-testid="trunfo-card">Super Trunfo</span>;
+    const trunfo = (
+      <span data-testid="trunfo-card">
+        { cardTrunfo ? 'Super Trunfo' : ''}
+      </span>
+    );
     return (
       <div>
         <span data-testid="name-card">{ cardName }</span>
@@ -16,7 +20,7 @@ class Card extends React.Component {
         <span data-testid="attr2-card">{ cardAttr2}</span>
         <span data-testid="attr3-card">{ cardAttr3 }</span>
         <span data-testid="rare-card">{ cardRare }</span>
-        { cardTrunfo ? trunfo : '' }
+        { trunfo }
       </div>
     );
   }
