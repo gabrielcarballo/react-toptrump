@@ -20,6 +20,7 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       deck: [],
+      hasTrunfo: false,
     };
   }
 
@@ -50,9 +51,17 @@ class App extends React.Component {
     });
   }
 
-  onSaveButtonClick(p) {
-    this.setState((state) => ({
-      deck: [state.deck, p],
+  onSaveButtonClick = (p) => {
+    const { cardTrunfo } = this.state;
+    console.log(cardTrunfo);
+    this.setState({
+      hasTrunfo: cardTrunfo,
+    });
+
+    console.log(this.deck);
+    console.log(p);
+    this.setState((e) => ({
+      deck: [...e.deck, p],
       cardName: '',
       cardDescription: '',
       cardImage: '',
@@ -60,8 +69,9 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       cardRare: 'normal',
+      cardTrunfo: false,
     }));
-  }
+  };
 
   render() {
     return (
