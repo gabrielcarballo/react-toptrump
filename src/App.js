@@ -31,9 +31,9 @@ class App extends React.Component {
         cardAttr2, cardAttr3, cardImage } = this.state;
       const MAX = 210;
       const MIN = 90;
-      if (cardName !== ''
-      && cardImage !== ''
-      && cardDescription !== ''
+      if (cardName.length > 0
+      && cardImage.length > 0
+      && cardDescription.length > 0
       && Number(+cardAttr1) <= MIN
       && Number(+cardAttr2) <= MIN
       && Number(+cardAttr3) <= MIN
