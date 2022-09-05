@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import Deck from './components/Deck';
 
 class App extends React.Component {
   constructor() {
@@ -21,6 +20,7 @@ class App extends React.Component {
       cardTrunfo: false,
       isSaveButtonDisabled: true,
       deck: [],
+      deckInstance: [],
       hasTrunfo: false,
     };
   }
@@ -36,15 +36,15 @@ class App extends React.Component {
       const MAX = 210;
       const MIN = 90;
       if (cardName.length > 0
-      && cardImage.length > 0
-      && cardDescription.length > 0
-      && Number(+cardAttr1) <= MIN
-      && Number(+cardAttr2) <= MIN
-      && Number(+cardAttr3) <= MIN
-      && Number(+cardAttr1) >= 0
-      && Number(+cardAttr2) >= 0
-      && Number(+cardAttr3) >= 0
-      && (Number(+cardAttr1) + Number(+cardAttr2) + Number(+cardAttr3)) <= MAX) {
+        && cardImage.length > 0
+        && cardDescription.length > 0
+        && Number(+cardAttr1) <= MIN
+        && Number(+cardAttr2) <= MIN
+        && Number(+cardAttr3) <= MIN
+        && Number(+cardAttr1) >= 0
+        && Number(+cardAttr2) >= 0
+        && Number(+cardAttr3) >= 0
+        && (Number(+cardAttr1) + Number(+cardAttr2) + Number(+cardAttr3)) <= MAX) {
         this.setState({ isSaveButtonDisabled: false });
       } else {
         this.setState({ isSaveButtonDisabled: true });
@@ -77,6 +77,7 @@ class App extends React.Component {
   };
 
   render() {
+    const { deck } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -86,7 +87,20 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
         />
         <Card { ...this.state } />
-        <Deck deck={ this.state.deck }/>
+
+        {deck.map((e) => (
+          <Card
+            cardName={ e.cardName }
+            cardDescription={ e.cardDescription }
+            cardImage={ e.cardImage }
+            cardAttr1={ e.cardAttr1 }
+            cardAttr2={ e.cardAttr2 }
+            cardAttr3={ e.cardAttr3 }
+            cardRare={ e.cardRare }
+            cardTrunfo={ e.cardTrunfo }
+            key={ e.cardName }
+          />
+        ))}
       </div>
     );
   }
