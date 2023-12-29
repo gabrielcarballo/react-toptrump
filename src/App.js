@@ -54,13 +54,13 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     const { cardTrunfo, deck } = this.state;
-    console.log(cardTrunfo);
+
     this.setState({
       hasTrunfo: cardTrunfo,
     });
 
     let deckInstance = deck;
-    console.log(deckInstance);
+
     deckInstance = [...deckInstance, this.state];
     this.setState({ deck: deckInstance });
     this.setState({
@@ -73,7 +73,7 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
     });
-    console.log(deckInstance);
+
   };
 
   render() {
